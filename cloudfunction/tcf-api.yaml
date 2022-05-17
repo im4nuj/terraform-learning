@@ -1,0 +1,22 @@
+swagger : "2.0"
+info:
+  title: Terraform Cloud Function API
+  description: An api config to connect api gateway resource with terraform deployed cloud function
+  version: 1.0.0
+schemes:
+  - https
+produces:
+  - application/json
+paths:
+  /tf-cd:
+    post:
+      summary: "echo the input"
+      operationId: echo
+      x-google-backend:
+        address: ${ADDRESS}
+        protocol: h2
+      responses:
+        '200':
+          description: echo result
+          schema:
+            type: string
